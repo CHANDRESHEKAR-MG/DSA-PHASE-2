@@ -7,6 +7,9 @@ class stackOne{
         System.out.println(s.peek());
         System.out.println(s.pop());
         System.out.println(s.peek());
+        s.push(40);
+        s.push(50);
+        s.display();    
     }
     int size;
     int stack[];
@@ -44,4 +47,10 @@ class stackOne{
         }
         return -1;
     }   
+    void display(){
+        for(int i=top;i>=0;i--){
+            System.out.println(stack[i]+" ");
+        }
+        System.out.println();
+    }
 }
