@@ -1,3 +1,4 @@
+import java.util.HashMap;
 class revString {
     public static void main(String[] args) {
         String str1 = "Hello !How Are You";
@@ -8,6 +9,7 @@ class revString {
         firstLetterOfEveryWordUpperrCase(str);
         vowelup(str);
         replaceVowelWithNextUpperCaseVowel(str);
+
     }
     static void revStr(String str) {
         char[] arr = str.toCharArray();
@@ -66,20 +68,49 @@ class revString {
         System.out.println("Vowels in Uppercase: " + new String(arr3));
      }  
      static void replaceVowelWithNextUpperCaseVowel(String str){
-        char[] arr4 = str.toCharArray();
+         char[] arr4 = str.toCharArray();
+        // for (int i = 0; i < arr4.length; i++) {
+        //     if (arr4[i] == 'a') {
+        //         arr4[i] = 'E';
+        //     } else if (arr4[i] == 'e') {
+        //         arr4[i] = 'I';
+        //     } else if (arr4[i] == 'i') {
+        //         arr4[i] = 'O';
+        //     } else if (arr4[i] == 'o') {
+        //         arr4[i] = 'U';
+        //     } else if (arr4[i] == 'u') {
+        //         arr4[i] = 'A';
+        //     }
+        // }
+        // switch(arr4[i]){
+        //     case 'a':
+        //         arr4[i]='E';
+        //         break;
+        //     case 'e':
+        //         arr4[i]='I';
+        //         break;
+        //     case 'i':
+        //         arr4[i]='O';
+        //         break;
+        //     case 'o':
+        //         arr4[i]='U';
+        //         break;
+        //     case 'u':
+        //         arr4[i]='A';
+        //         break;
+        // }
+        HashMap<Character, Character> vowelMap = new HashMap<>();
+        vowelMap.put('a', 'E');
+        vowelMap.put('e', 'I');
+        vowelMap.put('i', 'O');
+        vowelMap.put('o', 'U');
+        vowelMap.put('u', 'A');
         for (int i = 0; i < arr4.length; i++) {
-            if (arr4[i] == 'a') {
-                arr4[i] = 'E';
-            } else if (arr4[i] == 'e') {
-                arr4[i] = 'I';
-            } else if (arr4[i] == 'i') {
-                arr4[i] = 'O';
-            } else if (arr4[i] == 'o') {
-                arr4[i] = 'U';
-            } else if (arr4[i] == 'u') {
-                arr4[i] = 'A';
-            }
+        if(vowelMap.containsKey(arr4[i])){
+            arr4[i]=vowelMap.get(arr4[i]);
         }
+    }
         System.out.println("Vowels Replaced with Next Uppercase Vowel: " + new String(arr4));
-     }
+     }     
+
 }
